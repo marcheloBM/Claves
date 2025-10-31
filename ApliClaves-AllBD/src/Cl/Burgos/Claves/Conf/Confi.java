@@ -65,7 +65,7 @@ public interface Confi {
         
     //Configuraciones para Update
     static String repositorio = "https://github.com/marcheloBM/Claves";
-    static String versionActual = "2.0";
+    static String versionActual = "2.1";
         
     //Prueba Login
 //    String loginUsep="111111111";

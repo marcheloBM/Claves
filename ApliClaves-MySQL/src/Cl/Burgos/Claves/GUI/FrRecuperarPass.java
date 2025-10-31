@@ -39,7 +39,7 @@ public class FrRecuperarPass extends javax.swing.JFrame {
         jPanel2.setVisible(false);
         jPanel3.setVisible(false);
         
-        txtCorreo.setText("marchelo.1989@live.cl");
+        txtCorreo.setText("marchelo@live.cl");
         txtRespuestaSecre.setText("azul");
         
         jPanel1.setOpaque(false);

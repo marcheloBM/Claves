@@ -1,3 +1,11 @@
+/* 
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
+ */
+/**
+ * Author:  march
+ * Created: 31 oct 2025
+ */
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -475,10 +483,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Claves`;
-INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (1, '17.008.864-6', 'Marcelo', 'Burgos', 'marchelo.1989@live.cl', '729c35493e6b8e990aaaddc2a52d02c1', 'Color favorito', 'azul', NULL, NULL);
+INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (1, '17.008.864-6', 'Marcelo', 'Burgos', 'marchelo@live.cl', '729c35493e6b8e990aaaddc2a52d02c1', 'Color favorito', 'azul', NULL, NULL);
 INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (2, '21.185.681-5', 'Tihare', NULL, 'Prueba@prueba.cl', '31c1aa721d80de4a819b9f019c71b36b', 'Pregunta', 'Respuesta', NULL, NULL);
-INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (3, '16.472.302-k', 'Romina', 'Peñafiel', 'Rommy_andrea@hotmail.com', '9d044836e52b23b272b86330f9b210d8', 'Pregunta', 'Respuesta', NULL, NULL);
-INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (4, '7.366.253-2', 'Magdalena', 'Lopez', 'lopez.magda@live.com', '0dfd4690a7c1514c438af32530239c66', 'Pregunta', 'Respuesta', NULL, NULL);
+INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (3, '16.472.302-k', 'Romina', 'Peñafiel', 'Rommy@hotmail.com', '9d044836e52b23b272b86330f9b210d8', 'Pregunta', 'Respuesta', NULL, NULL);
+INSERT INTO `Claves`.`Login` (`idLogin`, `rut`, `nombre`, `apellido`, `correo`, `password`, `preguntaSecreta`, `respuestaSecreta`, `claveSecreta`, `cambioPass`) VALUES (4, '7.366.253-2', 'Magdalena', 'Lopez', 'lopez@live.com', '0dfd4690a7c1514c438af32530239c66', 'Pregunta', 'Respuesta', NULL, NULL);
 
 COMMIT;
 
@@ -488,10 +496,10 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `Claves`;
-INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (1, 'Adobe', 'https://www.adobe.com/la/', 'bWFyY2hlbG8uYm1AaG90bWFpbC5jb20', 'SFAyMTE3bGE=', '2019-02-22 15:20:15', '2019-02-22 15:20:15', 1);
-INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (2, 'Adobe 2', 'https://www.adobe.com/la/', 'bWFyY2hlbG8uMTk4OUBsaXZlLmNs', 'SFAyMTE3bGE=', '2019-02-22 15:21:47', '2019-02-22 15:21:47', 1);
-INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (3, 'Blizzard', 'https://us.battle.net/login/es/', 'bWFyY2hlbG8uMTk4OUBsaXZlLmNs', 'aHAyMTE3bGE', '2019-02-22 15:24:26', '2019-02-22 15:24:26', 1);
-INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (4, 'Ticket Junaeb', 'https://www.becaticketjunaeb.cl', 'MTcuMDA4Ljg2NC02', 'SFAyMTE3bGE', '2019-02-22 15:30:10', '2019-02-22 15:35:48', 1);
+INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (1, 'Adobe', 'https://www.adobe.com/la/', 'bWFyY2hlbG8uYm1AaG90bWFpbC5jb20', 'UGFzczE==', '2019-02-22 15:20:15', '2019-02-22 15:20:15', 1);
+INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (2, 'Adobe 2', 'https://www.adobe.com/la/', 'bWFyY2hlbG8uMTk4OUBsaXZlLmNs', 'UGFzczE==', '2019-02-22 15:21:47', '2019-02-22 15:21:47', 1);
+INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (3, 'Blizzard', 'https://us.battle.net/login/es/', 'bWFyY2hlbG8uMTk4OUBsaXZlLmNs', 'UGFzczE=', '2019-02-22 15:24:26', '2019-02-22 15:24:26', 1);
+INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (4, 'Ticket Junaeb', 'https://www.becaticketjunaeb.cl', 'MTcuMDA4Ljg2NC02', 'UGFzczE=', '2019-02-22 15:30:10', '2019-02-22 15:35:48', 1);
 INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (5, 'Facebook', 'www.facebook.cl', 'bG9wZXoubWFnZGFAbGl2ZS5jb20', 'NzUzNTYxMThtYWdkYQ', '2019-02-22 18:11:06', '2019-02-22 18:11:06', 4);
 INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (6, 'Cencosud', 'www.tarjetacencosud.cl', 'NzM2NjI1MzI=', 'Mzg1Nw==', '2019-02-22 18:57:15', '2019-02-22 18:57:15', 4);
 INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (7, 'Cuenta rut', 'www.Bancoestado.cl', 'NzM2NjI1MzI=', 'Mzg1N21hZ2Q=', '2019-02-22 19:01:20', '2019-02-22 19:01:20', 4);
@@ -505,4 +513,6 @@ INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `
 INSERT INTO `Claves`.`Claves` (`idClaves`, `nombre`, `pag`, `usuario`, `pass`, `fechaInert`, `fechaUpdate`, `idLogin`) VALUES (17, 'Outlook', 'www.outlook.com', 'R2FyZmllbGQuZ29kZGVzcy5sb3ZlQGhvdG1haWwuY29t', 'MTQ5MTk4NnJvbW15', '2019-02-25 04:43:27', '2019-02-25 04:43:27', 3);
 
 COMMIT;
+
+
 
