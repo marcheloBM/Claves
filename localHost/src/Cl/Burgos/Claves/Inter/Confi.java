@@ -12,7 +12,7 @@ package Cl.Burgos.Claves.Inter;
 public interface Confi {
     //Configuracion de BD localhot
     //Para mySQL
-    String DriverBD="com.mysql.jdbc.Driver";
+    String DriverBD="com.mysql.cj.jdbc.Driver";
     //Para Oracle
 //    String DriverBD="oracle.jdbc.OracleDriver";
     // BD Local
@@ -57,4 +57,8 @@ public interface Confi {
     String loginPasp="HP2117la";
 //    String loginUsep="111111111";
 //    String loginPasp="admin";
+    
+    //Configuraciones para Update
+    static String repositorio = "https://github.com/marcheloBM/Claves";
+    static String versionActual = "2.2";
 }
