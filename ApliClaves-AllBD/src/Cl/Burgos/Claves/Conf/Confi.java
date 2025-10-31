@@ -64,12 +64,9 @@ public interface Confi {
     static String userProgra = System.getProperty("user.dir");
         
     //Configuraciones para Update
-    static String nameArchivo = "ApliClaves.exe";
-    static String CarpetaUpdate = "Update/";
-    static String Version = "1.3";
-    static String UrlVersion = "https://raw.githubusercontent.com/marchelo1989/Claves/master/Update/Version.txt";
-    static String UrlDescarga = "https://raw.githubusercontent.com/marchelo1989/Claves/master/Update/Descargas.txt";
-    
+    static String repositorio = "https://github.com/marcheloBM/Claves";
+    static String versionActual = "2.0";
+        
     //Prueba Login
 //    String loginUsep="111111111";
 //    String loginPasp="admin";

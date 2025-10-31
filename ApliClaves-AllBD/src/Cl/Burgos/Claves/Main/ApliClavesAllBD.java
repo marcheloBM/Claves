@@ -6,15 +6,10 @@
 package Cl.Burgos.Claves.Main;
 
 import Cl.Burgos.Claves.Conf.Confi;
-import Cl.Burgos.Claves.FUN.Actualizacion;
 import Cl.Burgos.Claves.FUN.Directorio;
-import Cl.Burgos.Claves.GUI.FrLogin;
-import java.awt.Color;
+import Cl.Burgos.Claves.GUI.*;
 import java.io.File;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import org.apache.log4j.PropertyConfigurator;
 
 /**
@@ -30,34 +25,50 @@ public class ApliClavesAllBD {
         // TODO code application logic here
         File log4jfile = new File(Confi.userProgra+"/Log4j.properties");
         PropertyConfigurator.configure(log4jfile.getAbsolutePath());
-    
+        String repo = Confi.repositorio;
+        String versionActual = Confi.versionActual;
+
+        String ultimaVersion = GitHubReleaseGUI.obtenerUltimaVersion(repo);
+
+        if (ultimaVersion == null) {
+            JOptionPane.showMessageDialog(null, "⚠️ No se pudo verificar la versión.");
+            //Inicia el programa si no se puede verificar
+            interzas();
+        } else if (ultimaVersion.equals(versionActual)) {
+            // Estás usando la última versión publicada
+            interzas();
+        } else if (compararVersiones(versionActual, ultimaVersion) > 0) {
+            // Estás usando una versión más nueva que la publicada
+            JOptionPane.showMessageDialog(null, "🧪 Estás usando una versión en desarrollo (" + versionActual + ").");
+            interzas();
+        } else {
+            // Hay una versión más nueva publicada
+            JOptionPane.showMessageDialog(null, "🟢 Hay una nueva versión disponible: " + ultimaVersion);
+            int respu = JOptionPane.showConfirmDialog(null, "¿Desea descargar la nueva versión?");
+            if (respu == JOptionPane.YES_OPTION) {
+                //Abrimos para descargar la nueva version
+                GitHubReleaseGUI.main(args);
+            } else {
+                JOptionPane.showMessageDialog(null, "Intente mantener el programa actualizado.");
+                //Si no queremos actualizar a la ultima Version
+                interzas();
+            }
+        }
+    }
+    public static void interzas(){
         Directorio.crearDirecPre();
         Directorio.crearDirecSec();
-        boolean resp =buscarUpdate();
-        if(resp==false){
-            new FrLogin().setVisible(true);
-        }
-//        new FrLogin().setVisible(true);
+        new FrLogin().setVisible(true);
     }
-    public static boolean buscarUpdate(){
-        boolean resp;
-        if(Actualizacion.verificarConexion()){
-            if(Actualizacion.obtenerVersion().equals(Confi.Version)){
-                resp=false;
-            }else{
-                resp=true;
-                int respu = JOptionPane.showConfirmDialog(null, "Version "+Actualizacion.obtenerVersion()+ " Diponible \n¿Desea Descargar?");
-                if(respu==0){
-                    JOptionPane.showMessageDialog(null, "Descargando Update \nEspere Mensaje");
-                    Actualizacion.descargarUpdate(Confi.UrlDescarga);
-                    resp=true;
-                }else{
-                    resp=false;
-                }
-            }
-        }else{
-            resp=false;
+    public static int compararVersiones(String v1, String v2) {
+        String[] a = v1.split("\\.");
+        String[] b = v2.split("\\.");
+        int len = Math.max(a.length, b.length);
+        for (int i = 0; i < len; i++) {
+            int n1 = i < a.length ? Integer.parseInt(a[i]) : 0;
+            int n2 = i < b.length ? Integer.parseInt(b[i]) : 0;
+            if (n1 != n2) return Integer.compare(n1, n2);
         }
-        return resp;
+        return 0;
     }
 }
