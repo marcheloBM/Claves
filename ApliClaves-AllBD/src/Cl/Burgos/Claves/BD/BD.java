@@ -39,11 +39,13 @@ public class BD {
     //En el mismo Sistema
 //    private static String myUrl = "jdbc:mysql://"+ip+":"+puerto+"/"+BaseDatos;
     //En access
-    private static String myUrl = "jdbc:ucanaccess://"+BaseDatos+";jackcessOpener=Cl.Burgos.Claves.BD.CryptCodecOpener";
+//    private static String myUrl = "jdbc:ucanaccess://"+BaseDatos+";jackcessOpener=Cl.Burgos.Claves.BD.CryptCodecOpener";
     //Para SqlServer
 //    private static String myUrl = "jdbc:sqlserver://"+ip+":+"+puerto+";databaseName="+BaseDatos;
     //Para Oracle
 //    private static String myUrl = "jdbc:oracle:thin:@"+ip+":"+puerto+":XE";
+    //En sqlite
+    private static String myUrl = "jdbc:sqlite:"+BaseDatos;String user="";String clave="";
     
     //Variables del Log4j
     static  Logger log4j =Logger.getLogger(BD.class);
@@ -166,6 +168,7 @@ public class BD {
         }
         return con;
     }
+
     
     public static boolean conectarBD(){
         try{

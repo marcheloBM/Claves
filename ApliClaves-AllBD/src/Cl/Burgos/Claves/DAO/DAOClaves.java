@@ -6,6 +6,7 @@
 package Cl.Burgos.Claves.DAO;
 
 import Cl.Burgos.Claves.BD.BD;
+import static Cl.Burgos.Claves.DAO.DAOLogin.log;
 import Cl.Burgos.Claves.ENT.ClClaves;
 import Cl.Burgos.Claves.FUN.MetodoBase64E;
 import Cl.Burgos.Claves.Inter.ClavesInter;
@@ -31,7 +32,7 @@ public class DAOClaves implements ClavesInter{
         List<ClClaves> lista=new ArrayList<>();
         String strConsulta;
         
-        strConsulta="select idClaves,nombre,pag,usuario,pass,fechaInert,fechaUpdate,idLogin from Claves where idLogin="+id+";";
+        strConsulta="select idClaves,nombre,pag,usuario,pass,fechaInsert,fechaUpdate,idLogin from Claves where idLogin="+id+";";
         
         try{
          ResultSet rs=BD.getInstance().sqlSelect(strConsulta);
@@ -39,7 +40,7 @@ public class DAOClaves implements ClavesInter{
          while(rs.next()){
              ClClaves c = new ClClaves(rs.getInt("idClaves"), rs.getString("nombre"), 
                      rs.getString("pag"), rs.getString("usuario"), rs.getString("pass"), 
-                     rs.getDate("fechaInert"), rs.getDate("fechaUpdate"), rs.getInt("idLogin"));
+                     rs.getDate("fechaInsert"), rs.getDate("fechaUpdate"), rs.getInt("idLogin"));
               lista.add(c);
          }
          
@@ -83,7 +84,7 @@ public class DAOClaves implements ClavesInter{
         Connection con = BD.getInstance().conectar();
         java.util.Date date = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-        String stSql =  "insert into claves(nombre,pag,usuario,pass,fechaInert,fechaUpdate,idLogin)values(?,?,?,?,?,?,?);";
+        String stSql =  "insert into claves(nombre,pag,usuario,pass,fechaInsert,fechaUpdate,idLogin)values(?,?,?,?,?,?,?);";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(stSql);
@@ -100,6 +101,7 @@ public class DAOClaves implements ClavesInter{
         } catch (SQLException ex) {
 //            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
             Log.log(ex.getMessage());
+            log.info(ex.getMessage());
             return false;
         }
     }
@@ -109,7 +111,7 @@ public class DAOClaves implements ClavesInter{
         String strConsulta;
         String datos[]=new String [8];
         
-        strConsulta="select idClaves,nombre,pag,usuario,pass,fechaInert,fechaUpdate,idLogin from claves where idClaves="+claves.getId();
+        strConsulta="select idClaves,nombre,pag,usuario,pass,fechaInsert,fechaUpdate,idLogin from claves where idClaves="+claves.getId();
 //        strConsulta="call ProClavesBuscarID("+claves.getId()+");";
      
       
@@ -124,7 +126,7 @@ public class DAOClaves implements ClavesInter{
               datos[2]=rs.getString("pag");
               datos[3]=rs.getString("usuario");
               datos[4]=rs.getString("pass");
-              datos[5]=rs.getString("fechaInert");
+              datos[5]=rs.getString("fechaInsert");
               datos[5]=rs.getString("fechaUpdate");
               datos[6]=rs.getString("idLogin");
                       
@@ -145,7 +147,7 @@ public class DAOClaves implements ClavesInter{
     @Override
     public boolean sqlUpdate(ClClaves claves) {
         Connection con = BD.getInstance().conectar();
-        String insert = "update Claves set nombre=?,pag=?,usuario=?,pass=?,fechaUpdate=?,idLogin=? WHERE idClaves=?;";
+        String insert = "update Claves set nombre=?,pag=?,usuario=?,pass=?,fechaInsert=?,idLogin=? WHERE idClaves=?;";
         PreparedStatement ps = null;
         java.util.Date date = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());

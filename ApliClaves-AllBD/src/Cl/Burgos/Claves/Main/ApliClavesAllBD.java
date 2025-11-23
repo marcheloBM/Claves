@@ -5,6 +5,7 @@
  */
 package Cl.Burgos.Claves.Main;
 
+import Cl.Burgos.Claves.BD.DBSetup;
 import Cl.Burgos.Claves.Conf.Confi;
 import Cl.Burgos.Claves.FUN.Directorio;
 import Cl.Burgos.Claves.GUI.*;
@@ -23,6 +24,9 @@ public class ApliClavesAllBD {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Inicio();
+    }
+    public static void Inicio(){
         File log4jfile = new File(Confi.userProgra+"/Log4j.properties");
         PropertyConfigurator.configure(log4jfile.getAbsolutePath());
         String repo = Confi.repositorio;
@@ -47,7 +51,7 @@ public class ApliClavesAllBD {
             int respu = JOptionPane.showConfirmDialog(null, "¿Desea descargar la nueva versión?");
             if (respu == JOptionPane.YES_OPTION) {
                 //Abrimos para descargar la nueva version
-                GitHubReleaseGUI.main(args);
+                GitHubReleaseGUI.main(new String[]{});
             } else {
                 JOptionPane.showMessageDialog(null, "Intente mantener el programa actualizado.");
                 //Si no queremos actualizar a la ultima Version
@@ -56,6 +60,7 @@ public class ApliClavesAllBD {
         }
     }
     public static void interzas(){
+        DBSetup.inicializar();
         Directorio.crearDirecPre();
         Directorio.crearDirecSec();
         new FrLogin().setVisible(true);

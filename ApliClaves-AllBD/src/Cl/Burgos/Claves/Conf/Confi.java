@@ -16,9 +16,14 @@ public interface Confi {
 */
 //    String DriverBD="com.mysql.jdbc.Driver";
 //    String DriverBD="oracle.jdbc.OracleDriver";
-    String DriverBD ="net.ucanaccess.jdbc.UcanaccessDriver";
+//    String DriverBD ="net.ucanaccess.jdbc.UcanaccessDriver";
 //    String DriverBD ="com.microsoft.sqlserver.jdbc.SQLServerDriver";
+      String DriverBD ="org.sqlite.JDBC";
     
+        /* Configuraciones BD Access*/
+        String BaseDatosBD="Claves.sqlite";
+        String userBD="";
+        String passBD="";
     
     /* Configuraciones BD Windows 7*/
 //    String ipBD="localhost";
@@ -28,9 +33,9 @@ public interface Confi {
 //    String passBD="";
     
     /* Configuraciones BD Access*/
-    String BaseDatosBD="./Claves.accdb";
-    String userBD="sa";
-    String passBD="mbm31";
+//    String BaseDatosBD="./Claves.accdb";
+//    String userBD="sa";
+//    String passBD="mbm31";
     
     /* Configuraciones Sql Server*/
 //    String ipBD="localhost";
@@ -65,7 +70,7 @@ public interface Confi {
         
     //Configuraciones para Update
     static String repositorio = "https://github.com/marcheloBM/Claves";
-    static String versionActual = "2.2";
+    static String versionActual = "2.3";
         
     //Prueba Login
 //    String loginUsep="111111111";
