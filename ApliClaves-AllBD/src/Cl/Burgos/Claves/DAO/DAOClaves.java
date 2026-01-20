@@ -40,7 +40,7 @@ public class DAOClaves implements ClavesInter{
          while(rs.next()){
              ClClaves c = new ClClaves(rs.getInt("idClaves"), rs.getString("nombre"), 
                      rs.getString("pag"), rs.getString("usuario"), rs.getString("pass"), 
-                     rs.getDate("fechaInsert"), rs.getDate("fechaUpdate"), rs.getInt("idLogin"));
+                     new Date(rs.getLong("fechaInsert")), new Date(rs.getLong("fechaUpdate")), rs.getInt("idLogin"));
               lista.add(c);
          }
          
@@ -99,7 +99,11 @@ public class DAOClaves implements ClavesInter{
             ps.execute();
             return true;
         } catch (SQLException ex) {
-//            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(DAOClaves.class.getName()).log(Level.SEVERE, null, ex);
+            // Muestra el mensaje completo de SQLite
+            ex.printStackTrace(); // imprime en consola el stacktrace
+            System.out.println("Error SQL: " + ex.getMessage()); // mensaje exacto
+
             Log.log(ex.getMessage());
             log.info(ex.getMessage());
             return false;

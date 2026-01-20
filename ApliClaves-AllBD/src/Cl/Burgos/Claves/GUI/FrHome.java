@@ -472,7 +472,7 @@ public class FrHome extends javax.swing.JFrame {
         } catch (Exception ex) {
             Log.log(ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error:"+ex.getMessage());
-//            Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrHome.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
